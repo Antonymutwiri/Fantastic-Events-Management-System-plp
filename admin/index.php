@@ -1,13 +1,13 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
-	
-<?php session_start(); ?>
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title><?php echo isset($_SESSION['system']['name']) ? $_SESSION['system']['name'] : '' ?></title>
- 	
+  
+
 
 <?php
   if(!isset($_SESSION['login_id']))
@@ -15,7 +15,6 @@
  include('./header.php'); 
  // include('./auth.php'); 
  ?>
-
 </head>
 <style>
 	body{

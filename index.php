@@ -1,19 +1,17 @@
+<?php
+session_start();
+include('admin/db_connect.php');
+ob_start();
+$query = $conn->query("SELECT * FROM system_settings limit 1")->fetch_array();
+foreach ($query as $key => $value) {
+    if(!is_numeric($key))
+        $_SESSION['system'][$key] = $value;
+}
+ob_end_flush();
+include('header.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
-    <?php
-    session_start();
-    include('admin/db_connect.php');
-    ob_start();
-        $query = $conn->query("SELECT * FROM system_settings limit 1")->fetch_array();
-         foreach ($query as $key => $value) {
-          if(!is_numeric($key))
-            $_SESSION['system'][$key] = $value;
-        }
-    ob_end_flush();
-    include('header.php');
-
-	
-    ?>
 
     <style>
     	header.masthead {
@@ -70,6 +68,7 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=home">Home</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=venue">Venues</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=about">About</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="admin/login.php">Admin</a></li>
                         
                      
                     </ul>
@@ -158,7 +157,7 @@
                 </div>
             </div>
             <br>
-            <div class="container"><div class="small text-center text-muted">Copyright © 2021 - <?php echo $_SESSION['system']['name'] ?> | <a class="text-success" href="https://www.sourcecodester.com/" target="_blank">ITSOURCECODE</a></div></div>
+            <div class="container"><div class="small text-center text-muted">© <?php echo date('Y') ?> <?php echo $_SESSION['system']['name'] ?>. All rights reserved.</div></div>
         </footer>
         
        <?php include('footer.php') ?>

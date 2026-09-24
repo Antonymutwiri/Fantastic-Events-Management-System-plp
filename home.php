@@ -69,7 +69,7 @@ span.hightlight{
                 <h4 class="text-center text-white">Upcoming Events</h4>
                 <hr class="divider">
                 <?php
-                $event = $conn->query("SELECT e.*,v.venue FROM events e inner join venue v on v.id=e.venue_id where date_format(e.schedule,'%Y-%m%-d') >= '".date('Y-m-d')."' and e.type = 1 order by unix_timestamp(e.schedule) asc");
+                $event = $conn->query("SELECT e.*,v.venue FROM events e inner join venue v on v.id=e.venue_id where date_format(e.schedule,'%Y-%m-%d') >= '".date('Y-m-d')."' and e.type = 1 order by unix_timestamp(e.schedule) asc");
                 while($row = $event->fetch_assoc()):
                     $trans = get_html_translation_table(HTML_ENTITIES,ENT_QUOTES);
                     unset($trans["\""], $trans["<"], $trans[">"], $trans["<h2"]);

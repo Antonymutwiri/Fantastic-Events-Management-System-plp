@@ -9,9 +9,11 @@
 </style>
 
 <nav id="sidebar" class='mx-lt-5 bg-dark' >
-		
-		<div class="sidebar-list">
-				<a href="index.php?page=home" class="nav-item nav-home"><span class='icon-field'><i class="fa fa-home"></i></span> Home</a>
+	<div class="sidebar-list">
+		<div class="text-center mb-3">
+			<img src="assets/uploads/atechs-logo.jpeg" alt="AtechsSolutions" style="max-width: 80%; height: auto;">
+		</div>
+		<a href="index.php?page=home" class="nav-item nav-home"><span class='icon-field'><i class="fa fa-home"></i></span> Home</a>
 				<a href="index.php?page=booking" class="nav-item nav-booking"><span class='icon-field'><i class="fa fa-th-list"></i></span> Venue Book List</a>
 				<a href="index.php?page=audience" class="nav-item nav-audience"><span class='icon-field'><i class="fa fa-th-list"></i></span> Event Audience List</a>
 				<a href="index.php?page=venue" class="nav-item nav-venue"><span class='icon-field'><i class="fa fa-map-marked-alt"></i></span> Venues</a>

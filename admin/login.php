@@ -73,7 +73,24 @@ ob_end_flush();
 </style>
 
 <body>
-
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top py-2" style="box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger d-flex align-items-center" href="./../">
+        <img src="assets/uploads/atechs-logo.jpeg" alt="AtechsSolutions" style="height: 40px; margin-right: 10px;">
+        <span class="font-weight-bold text-success">Atechs Events Management System Solution</span>
+      </a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="./../index.php?page=home">Home</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="./../index.php?page=venue">Venues</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="./../index.php?page=about">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <main id="main" class=" bg-black">
   		<div id="login-left">

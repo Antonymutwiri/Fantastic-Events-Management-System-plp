@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include 'admin/db_connect.php'; 
 ?>
 <style>
@@ -142,11 +143,28 @@ header.masthead,header.masthead:before {
 
 
 <script>
-    // $('.card.venue-list').click(function(){
-    //     location.href = "index.php?page=view_venue&id="+$(this).attr('data-id')
-    // })
     $('.book-venue').click(function(){
-        uni_modal("Submit Booking Request","booking.php?venue_id="+$(this).attr('data-id'))
+        <?php if(isset($_SESSION['login_id'])): ?>
+            uni_modal("Submit Booking Request","booking.php?venue_id="+$(this).attr('data-id'))
+        <?php else: ?>
+            $('#uni_modal .modal-title').html('Authentication Required');
+            $('#uni_modal .modal-body').html('<div class="text-center py-5"><div class="mb-4"><i class="fa fa-exclamation-circle fa-4x text-danger"></i></div><h4 class="text-danger mb-3">Access Denied</h4><p class="mb-4">You must be logged in to book a venue.</p><div class="d-flex justify-content-center gap-2"><button class="btn btn-success" id="login_first_venue">Login</button> <button class="btn btn-primary" id="register_first_venue">Register</button></div></div>');
+            $('#uni_modal .modal-dialog').removeAttr("class").addClass("modal-dialog modal-md");
+            $('#uni_modal').modal({
+                show:true,
+                backdrop:'static',
+                keyboard:false,
+                focus:true
+            });
+            setTimeout(function(){
+                $('#login_first_venue').click(function(){
+                    uni_modal("LOGIN",'admin/login_modal.php')
+                })
+                $('#register_first_venue').click(function(){
+                    uni_modal("CREATE AN ACCOUNT",'signup.php')
+                })
+            }, 500);
+        <?php endif; ?>
     })
     $('.venue-list .carousel img').click(function(){
         viewer_modal($(this).attr('src'))

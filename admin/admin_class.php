@@ -67,8 +67,6 @@ Class Action {
 	function signup(){
 		extract($_POST);
 		$data = " name = '$name' ";
-		$data .= ", contact = '$contact' ";
-		$data .= ", address = '$address' ";
 		$data .= ", username = '$email' ";
 		$data .= ", password = '".md5($password)."' ";
 		$data .= ", type = 3";
